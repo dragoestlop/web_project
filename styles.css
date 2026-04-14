@@ -16,6 +16,7 @@ Universal reset that allow us to have control over the website
 
 body {
     background-color: var(--background-color);
+    color: var(--text-color);
 }
 
 /*
@@ -62,27 +63,15 @@ Headers objects
     color: var(--background-color);
 }
 
-.logo {
-    color: var(--text-color);
-}
-
 .user-controls {
     display: flex;
     gap: 10px; /* This allow us to have space between the buttons */
     align-items: center;
 }
 
-.user-controls .btn-icon{
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    font-size: 16px;
-    width: 100px;
-    background-color: var(--accent-color);
-    color: var(--background-color);}
-
-.user-controls .btn-login{
+.user-controls .btn-login,
+.user-controls .btn-icon,
+.btn-add-to-cart{
     padding: 10px;
     border-radius: 5px;
     border: none;
@@ -95,8 +84,51 @@ Headers objects
 /*We make it interactive with our cursor */
 .user-controls .btn-login:hover,
 .user-controls .btn-icon:hover,
-.search-container button:hover{
+.search-container button:hover,
+.btn-add-to-cart:hover{
     background-color: var(--background-color);
     color: var(--accent-color);
     cursor: pointer;
+}
+
+
+/* 
+Catalog
+*/
+#catalogo{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+/*
+flex es unidireccional, es decir, solo se puede aplicar en una dimension
+grid es bidireccional, es decir, se puede aplicar en dos dimensiones
+por eso lo hemos usado
+*/
+/*
+Responsive Design, hay que comprobar que funciona en todos los dispositivos.
+Aqui solo hemos solucionado el catalogo de videojuegos, pero hay que hacerlo con todos los elementos de la pagina.
+*/
+@media (max-width: 768px) {
+    #catalogo {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 480px) {
+    #catalogo {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.game-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: var(--header-color);
+    color: var(--text-color);
 }
