@@ -3,11 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Game Shop</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    hola jose
+<header class="main-header">
+  <div class="logo">
+    <h1>Game Shop</h1> <!-- We have to change it for a image that we can generate with AI -->
+  </div>
+  
+  <form class="search-container" id="search-form">
+    <input type="search" id="search-input" placeholder="Search games, sagas..." aria-label="Search games"> 
+    <button type="submit">Search</button>
+  </form>
 
-    hola drago
+  <nav class="user-controls"> <!-- Queremos que el carrito solo se despliegue, no nos lleve a otro html -->
+    <button id="cart-toggle" class="btn-icon">
+      🛒 Cart <span id="cart-count">0</span>
+    </button>
+    <a href="login.html" class="btn-login">login</a>
+  </nav>
+</header>
+
+
 </body>
 </html>

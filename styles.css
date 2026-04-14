@@ -1,0 +1,49 @@
+:root {
+--background-color: #000000;
+--header-color: #181818;
+--accent-color: #00df5e;
+--text-color: #ffffff;
+}
+/*
+Universal reset that allow us to have control over the website
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background-color);
+}
+
+/*
+Flexbox
+*/
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--header-color);
+    padding: 20px; /* This allow us to have space between the header and the content */
+}
+
+
+/*
+Headers objects
+*/
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    color: var(--text-color);
+}
+
+.user-controls {
+    display: flex;
+    gap: 10px; /* This allow us to have space between the buttons */
+    align-items: center;
+}
