@@ -6,14 +6,15 @@
     <title>Game Shop</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 <header class="main-header">
   <div class="logo">
-    <h1>Game Shop</h1> <!-- We have to change it for a image that we can generate with AI -->
+    <h1>Game Shop</h1> <!-- meter logo aquí-->
   </div>
   
   <form class="search-container" id="search-form">
-    <input type="search" id="search-input" placeholder="Search games, sagas..." aria-label="Search games"> 
+    <input type="search" id="search-input" placeholder="Search..." aria-label="Search games"> 
     <button type="submit">Search</button>
   </form>
 
@@ -24,6 +25,8 @@
     <a href="login.html" class="btn-login">login</a>
   </nav>
 </header>
+
+
 <!--Es para hacer pruebas con CSS y HTML, estos juegos deberian estar en una base de datos-->
 <main>
     <section id="catalogo">
@@ -61,3 +64,9 @@
 
 </body>
 </html>
+
+
+<!--Esto es para probar que funciona la extension de php para cuando añadamos las cosas del servidor-->
+<?php
+echo "Funciona PHP";
+?>
