@@ -6,7 +6,7 @@ $db   = "videogame_store";
 $user = "postgres";
 $pass = "admin"; // la contraseña que he puesto en postgresql
 
-$dsn = "pgsql:host=$host;port=$port;dbname=$db;";
+$dsn = "pgsql:host=$host;port=$port;dbname=$db;"; //esta linea dice a que base de datos conectarse, se sustituyen los $por los que hemos puesto arriba
 
 // usamos PDO para conectarnos, si falla muestra el error
 try {
