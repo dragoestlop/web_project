@@ -51,111 +51,102 @@ while ($fila = $prepared->fetch()) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!--esto es para el responsive design-->    
     <title>EasyGames</title>
-    <!-- aqui enlazamos el css que haremos despues -->
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css"> <!--enlaza con el css-->
 </head>
-<body>
 
+<body>
     <!-- barra de navegacion -->
     <nav>
         <div class="nav-logo">
-            <a href="index.php">EasyGames</a>
+            <a href="index.php">EasyGames</a>  <!--esto hace que el propio "logo"te lleve a la pagina principal-->
         </div>
         <div class="nav-links">
-            <?php if (isset($_SESSION['user_id'])): ?>
+            <?php if (isset($_SESSION['user_id'])){ ?>  <!--este if comprueba si el usuario esta logueado-->
                 <!-- si el usuario esta logueado mostramos su nombre y saldo -->
-                <span>Hello, <?php echo $_SESSION['username']; ?></span>
-                <span class="balance">€<?php echo number_format($_SESSION['balance'], 2); ?></span>
+                <p>Hello, <?php echo $_SESSION['username']; ?></p>  <!--p es un elemento de párrafo-->
+                <p class="balance">€<?php echo $_SESSION['balance']; ?></p>
                 <a href="profile.php">My Profile</a>
                 <a href="logout.php">Logout</a>
-            <?php else: ?>
+            <?php }else{ ?>
                 <!-- si no esta logueado mostramos los botones de login y registro -->
                 <a href="login.php">Login</a>
                 <a href="register.php">Register</a>
-            <?php endif; ?>
+            <?php } ?>
         </div>
     </nav>
 
-    <!-- seccion de busqueda y filtros -->
-    <div class="filters">
-        <!-- el metodo GET hace que los filtros aparezcan en la url -->
-        <form method="GET" action="index.php">
-            <input
-                type="text"
-                name="search"
-                placeholder="Search games..."
-                value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>"
-            >
-            <select name="platform">
-                <option value="">All platforms</option>
-                <option value="PC" <?php echo (isset($_GET['platform']) && $_GET['platform'] === 'PC') ? 'selected' : ''; ?>>PC</option>
-                <option value="PlayStation" <?php echo (isset($_GET['platform']) && $_GET['platform'] === 'PlayStation') ? 'selected' : ''; ?>>PlayStation</option>
-                <option value="Xbox" <?php echo (isset($_GET['platform']) && $_GET['platform'] === 'Xbox') ? 'selected' : ''; ?>>Xbox</option>
-            </select>
-            <select name="online">
-                <option value="">Online & Offline</option>
-                <option value="true" <?php echo (isset($_GET['online']) && $_GET['online'] === 'true') ? 'selected' : ''; ?>>Online only</option>
-                <option value="false" <?php echo (isset($_GET['online']) && $_GET['online'] === 'false') ? 'selected' : ''; ?>>Offline only</option>
-            </select>
-            <input
-                type="number"
-                name="max_price"
-                placeholder="Max price €"
-                value="<?php echo isset($_GET['max_price']) ? htmlspecialchars($_GET['max_price']) : ''; ?>"
-            >
-            <button type="submit">Filter</button>
-            <a href="index.php">Clear filters</a>
-        </form>
-    </div>
+    <!--filtros -->
+<div class="filters">
+    <form method="GET" action="index.php">  <!--method GET hace que los filtros aparezcan en la url-->
+        <input type="text" name="search" placeholder="Search games...">
+        <select name="platform">  <!--select crea un desplegable con distintas options-->
+            <option value="">All platforms</option>
+            <option value="PC">PC</option>
+            <option value="PlayStation">PlayStation</option>
+            <option value="Xbox">Xbox</option>
+        </select>
+        <select name="online">
+            <option value="">Online & Offline</option>
+            <option value="true">Online only</option>
+            <option value="false">Offline only</option>
+        </select>
+        <input type="number" name="max_price" placeholder="Max price €">
+        <button type="submit">Filter</button>
+        <a href="index.php">Clear filters</a>
+    </form>
+</div>
 
     <!-- catalogo de juegos -->
-    <div class="catalog">
-        <?php if (empty($games)): ?>
-            <!-- si no hay juegos que coincidan con el filtro -->
-            <p class="no-results">No games found.</p>
-        <?php else: ?>
-            <?php foreach ($games as $game): ?>
-                <!-- una card por cada juego -->
-                <div class="game-card" onclick="openModal(<?php echo $game['id']; ?>)">
-                    <img src="img/<?php echo htmlspecialchars($game['cover_image']); ?>" alt="<?php echo htmlspecialchars($game['title']); ?>">
-                    <div class="game-info">
-                        <h3><?php echo htmlspecialchars($game['title']); ?></h3>
-                        <span class="platform"><?php echo htmlspecialchars($game['platform']); ?></span>
-                        <span class="online-badge">
-                            <?php echo $game['is_online'] ? 'Online' : 'Offline'; ?>
-                        </span>
-                        <p class="price">
-                            <?php echo $game['price'] > 0 ? '€' . number_format($game['price'], 2) : 'Free'; ?>
-                        </p>
-                    </div>
+<div class="catalog">  <!--En css usaremos la clase catalog para darle diseño de rejilla a las cards de los juegos y que queden alineads-->
+    <?php if (empty($games)) { ?>
+        <p class="no-results">No games found :(</p>
+    <?php } else { ?>
+        <?php foreach ($games as $game) { ?>
+            <div class="game-card" onclick="openModal(<?php echo $game['id']; ?>)">  <!--onclick ejecuta la funcion openModal de JS y hace que se abra la tarjeta con los datos del juego-->
+                <img src="img/<?php echo $game['cover_image']; ?>" alt="<?php echo $game['title']; ?>">
+                <div class="game-info">
+                    <h3><?php echo $game['title']; ?></h3>  <!--titulo del juego-->
+                    <p class="price">  <!--precio del juego que si es gratis pone free-->
+                        <?php if ($game['price'] > 0) { ?>
+                            €<?php echo $game['price']; ?>
+                        <?php } else { ?>
+                            Free
+                        <?php } ?>
+                    </p>
                 </div>
-            <?php endforeach; ?>
-        <?php endif; ?>
-    </div>
+            </div>
+        <?php } ?>
+    <?php } ?>
+</div>
 
     <!-- modal con los detalles del juego, empieza oculto -->
-    <div id="modal" class="modal hidden">
-        <div class="modal-content">
-            <button class="close-btn" onclick="closeModal()">✕</button>
-            <img id="modal-cover" src="" alt="">
-            <div class="modal-info">
-                <h2 id="modal-title"></h2>
-                <p id="modal-description"></p>
-                <span id="modal-platform"></span>
-                <span id="modal-online"></span>
-                <p id="modal-price"></p>
-                <?php if (isset($_SESSION['user_id'])): ?>
-                    <button id="buy-btn" onclick="buyGame()">Buy Now</button>
-                <?php else: ?>
-                    <a href="login.php">Login to buy</a>
-                <?php endif; ?>
-            </div>
+     <!--esto es lo que se despliega al darle a la card del juego gracias al javascript-->
+<div id="modal" class="modal hidden">  <!-- hidden no aparece en las diapositivas pero lo uso porque hace que el desplegable con los datos no se abra hasta que no le des-->
+    <div class="modal-content">
+        <!-- boton de cerrar, llama a closeModal() en main.js -->
+        <button class="close-btn" onclick="closeModal()">X</button>
+        <!-- estos elementos empiezan vacios, javascript los rellena al hacer clic en una card -->
+        <img id="modal-cover" src="" alt="">
+        <div class="modal-info">
+            <h2 id="modal-title"></h2>
+            <p id="modal-description"></p>
+            <p id="modal-platform"></p>
+            <p id="modal-online"></p>
+            <p id="modal-price"></p>
+            <?php if (isset($_SESSION['user_id'])) { ?>
+                <!-- si el usuario esta logueado mostramos el boton de compra -->
+                <button id="buy-btn" onclick="buyGame()">Buy Now</button>
+            <?php } else { ?>
+                <!-- si no esta logueado le mandamos al login -->
+                <a href="login.php">Login to buy</a>
+            <?php } ?>
         </div>
     </div>
+</div>
 
-    <!-- enlazamos el javascript -->
-    <script src="js/main.js"></script>
+<!-- enlazamos el javascript al final del body para que el html ya este cargado -->
+<script src="js/main.js"></script>
 </body>
 </html>
