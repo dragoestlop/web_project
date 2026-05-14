@@ -66,7 +66,7 @@ while ($fila = $prepared->fetch()) {
             <?php if (isset($_SESSION['user_id'])){ ?>  <!--este if comprueba si el usuario esta logueado-->
                 <!-- si el usuario esta logueado mostramos su nombre y saldo -->
                 <p>Hello, <?php echo $_SESSION['username']; ?></p>  <!--p es un elemento de párrafo-->
-                <p class="balance">€<?php echo $_SESSION['balance']; ?></p>
+                <p class="balance">€<?php echo number_format($_SESSION['balance'], 2); ?></p>
                 <a href="profile.php">My Profile</a>
                 <a href="logout.php">Logout</a>
             <?php }else{ ?>
@@ -145,6 +145,8 @@ while ($fila = $prepared->fetch()) {
         </div>
     </div>
 </div>
+
+<p id="modal-message"></p>
 
 <!-- enlazamos el javascript al final del body para que el html ya este cargado -->
 <script src="js/main.js"></script>

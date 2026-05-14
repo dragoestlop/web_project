@@ -33,6 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <a href="index.php">← Back to store</a>
     <?php if (isset($error)) { ?>
         <p><?php echo $error; ?></p>
     <?php } ?>

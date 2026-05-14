@@ -22,8 +22,9 @@ $purchases = $prepared->fetchAll();//para que muestre todas las compras del usua
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <a href="index.php">← Back to store</a>
     <h1>Welcome, <?php echo $_SESSION['username']; ?></h1>
-    <p>Your balance: $<?php echo $_SESSION['balance']; ?></p>
+    <p>Your balance: $<?php echo number_format($_SESSION['balance'], 2); ?></p>
 
     <!-- mostramos un mensaje de error si el codigo de recarga no es valido o ya se ha usado -->
     <!-- lo hacemos aqui mejor que en el api/recharge.php para que el mensaje se muestre en la pagina de perfil y no en una pagina en blanco -->

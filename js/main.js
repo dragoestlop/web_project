@@ -46,7 +46,7 @@ function buyGame() {
                 document.querySelector(".balance").textContent = "€" + result.new_balance;
                 closeModal();
             } else {
-                alert(result.message);
+                document.getElementById("modal-message").textContent = "Game purchased! Your code: " + result.activation_code;
             }
         });
 }

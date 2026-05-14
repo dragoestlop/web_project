@@ -34,6 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <a href="index.php">← Back to store</a>
     <!-- formulario igual que en index.php -->
     <form method="POST" action="register.php">
     <input type="text" name="username" placeholder="Username">
