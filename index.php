@@ -142,11 +142,12 @@ while ($fila = $prepared->fetch()) {
                 <!-- si no esta logueado le mandamos al login -->
                 <a href="login.php">Login to buy</a>
             <?php } ?>
+            <p id="modal-message"></p>
+
         </div>
     </div>
 </div>
 
-<p id="modal-message"></p>
 
 <!-- enlazamos el javascript al final del body para que el html ya este cargado -->
 <script src="js/main.js"></script>

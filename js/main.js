@@ -41,12 +41,12 @@ function buyGame() {
         })
         .then(function(result) {
             if (result.success) {
-                alert("Game purchased successfully!\nYour activation code: " + result.activation_code);
+                document.getElementById("modal-message").textContent = "Game purchased! Your code: " + result.activation_code;
                 // actualizamos el saldo que se ve en el nav
                 document.querySelector(".balance").textContent = "€" + result.new_balance;
                 closeModal();
             } else {
-                document.getElementById("modal-message").textContent = "Game purchased! Your code: " + result.activation_code;
+                document.getElementById("modal-message").textContent = result.message;
             }
         });
 }
