@@ -15,6 +15,7 @@ let currentGameId = null;  // variable global que hace que indica por ahora que 
 function openModal(id) {
     currentGameId = id;  // guardamos el id del juego abierto
     document.getElementById("modal").classList.remove("hidden");
+    document.getElementById("modal-message").textContent = "";
     //pedimos los elementos del modal al servidor
     //bsucamos la api, convierte la respuesta a JSON
     fetch("api/get_game.php?id=" + id)
@@ -44,7 +45,8 @@ function buyGame() {
                 document.getElementById("modal-message").textContent = "Game purchased! Your code: " + result.activation_code;
                 // actualizamos el saldo que se ve en el nav
                 document.querySelector(".balance").textContent = "€" + result.new_balance;
-                closeModal();
+                //closeModal();
+                //prueba para ver el codigo correctamente
             } else {
                 document.getElementById("modal-message").textContent = result.message;
             }
