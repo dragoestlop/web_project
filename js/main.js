@@ -9,7 +9,9 @@ function closeModal() {
     document.getElementById("modal").classList.add("hidden");
     //conseguimos los elementos del modal para ocultar su contenido
 }
-let currentGameId = null;  // guardamos el id del juego abierto
+let currentGameId = null;  // variable global que hace que indica por ahora que no hay nignun juego abierto
+
+
 function openModal(id) {
     currentGameId = id;  // guardamos el id del juego abierto
     document.getElementById("modal").classList.remove("hidden");
