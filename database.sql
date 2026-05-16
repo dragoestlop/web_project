@@ -37,14 +37,21 @@ CREATE TABLE purchases (
 
 -- metemos los juegos en el catalogo que hemos creado antes
 INSERT INTO games (title, description, price, platform, is_online, cover_image) VALUES
-('The Witcher 3: Wild Hunt', 'An open-world RPG where you play as Geralt of Rivia, a monster hunter in a dark fantasy world.', 9.99, 'PC', false, 'witcher3.jpg'),
+('The Witcher 3: Wild Hunt', 'An open-world RPG where you play as Geralt of Rivia, a monster hunter in a dark fantasy world.', 9.99, 'PlayStation', false, 'witcher3.jpg'),
 ('Grand Theft Auto V', 'An open-world action game set in the city of Los Santos. Includes online multiplayer mode.', 14.99, 'PC', true, 'gtav.jpg'),
 ('Minecraft', 'A sandbox game where you build and explore infinite worlds made of blocks.', 19.99, 'PC', true, 'minecraft.jpg'),
 ('Red Dead Redemption 2', 'An epic tale of life in Americas unforgiving heartland, set in 1899.', 19.99, 'PC', false, 'rdr2.jpg'),
 ('Counter-Strike 2', 'The legendary competitive first-person shooter, updated with new graphics and mechanics.', 0.00, 'PC', true, 'cs2.jpg'),
 ('Cyberpunk 2077', 'An open-world action RPG set in the dystopian Night City of the future.', 29.99, 'PC', false, 'cyberpunk.jpg'),
 ('Stardew Valley', 'A farming simulation RPG where you build your own farm and explore a charming world.', 9.99, 'PC', false, 'stardew.jpg'),
-('Elden Ring', 'A challenging open-world action RPG created by FromSoftware and George R.R. Martin.', 39.99, 'PC', false, 'eldenring.jpg');
+('Elden Ring', 'A challenging open-world action RPG created by FromSoftware and George R.R. Martin.', 39.99, 'PlayStation', false, 'eldenring.jpg'),
+('God of War: Ragnarok', 'The epic continuation of Kratos and Atreuss journey through the Norse realms.', 49.99, 'PlayStation', false, 'godofwar.jpg'),
+('The Last of Us Part II', 'A critically acclaimed action-adventure set in a post-apocalyptic world.', 39.99, 'PlayStation', false, 'thelastofus2.jpg'),
+('Marvel Spider-Man 2', 'Play as both Peter Parker and Miles Morales in this action-packed superhero adventure.', 49.99, 'PlayStation', false, 'spiderman2.jpg'),
+('Halo Infinite', 'The legendary sci-fi shooter returns with Master Chief in an open-world adventure.', 29.99, 'Xbox', true, 'haloinfinite.jpg'),
+('Starfield', 'Bethesdas epic space RPG set in a vast universe with hundreds of planets to explore.', 39.99, 'Xbox', false, 'starfield.jpg'),
+('Gears 5', 'An intense third-person shooter set in a brutal war against the Swarm.', 19.99, 'Xbox', false, 'gears5.jpg');
+
 
 -- codigos de recarga pregenerados, el campo used empieza en false
 INSERT INTO recharge_codes (code, amount) VALUES
