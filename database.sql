@@ -55,13 +55,23 @@ INSERT INTO games (title, description, price, platform, is_online, cover_image) 
 
 -- codigos de recarga pregenerados, el campo used empieza en false
 INSERT INTO recharge_codes (code, amount) VALUES
-('TOPUP-ALPHA-001', 10.00),
-('TOPUP-BETA-002', 25.00),
-('TOPUP-GAMMA-003', 50.00),
-('TOPUP-DELTA-004', 5.00),
-('TOPUP-OMEGA-005', 100.00),
-('TOPUP-SIGMA-006', 15.00),
-('TOPUP-THETA-007', 20.00),
-('TOPUP-KAPPA-008', 30.00),
-('TOPUP-LAMBDA-009', 75.00),
-('TOPUP-ZETA-010', 10.00);
+('A3F8K2P9', 10.00),
+('BX72WQ14', 25.00),
+('9MRZL5TK', 50.00),
+('KP4NZR81', 5.00),
+('W6TBQX23', 100.00),
+('MJ59HL7R', 15.00),
+('ZQ3FVN8W', 20.00),
+('R7KXBT45', 30.00),
+('4WNMCJ6P', 75.00),
+('YH82RZLT', 10.00),
+('TX5KBN3Q', 5.00),
+('6PZMWJ9F', 50.00),
+('NR4LQXT8', 20.00),
+('C9WBKM2Z', 100.00),
+('8FQTNZR5', 15.00),
+('LV3XPKW7', 25.00),
+('JM6BNQR4', 10.00),
+('5ZTKWX9L', 40.00),
+('QN8RFBP2', 60.00),
+('H4LWZMK6', 35.00);
