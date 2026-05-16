@@ -12,7 +12,7 @@ $price = $game['price'];
 // comprobamos que el usuario tiene suficiente saldo
 if ($_SESSION['balance'] >= $price) {
     // restamos el precio al saldo del usuario
-    $_SESSION['balance'] -= $price;
+    $_SESSION['balance'] = round($_SESSION['balance'] - $price, 2);  //usamos round para que no haya problemas con los decimales
     // actualizamos el saldo en la bbdd
     $sql = "UPDATE users SET balance = :balance WHERE id = :user_id";
     $prepared = $pdo->prepare($sql);
