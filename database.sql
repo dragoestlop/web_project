@@ -50,7 +50,11 @@ INSERT INTO games (title, description, price, platform, is_online, cover_image) 
 ('Marvel Spider-Man 2', 'Play as both Peter Parker and Miles Morales in this action-packed superhero adventure.', 49.99, 'PlayStation', false, 'spiderman2.jpg'),
 ('Halo Infinite', 'The legendary sci-fi shooter returns with Master Chief in an open-world adventure.', 29.99, 'Xbox', true, 'haloinfinite.jpg'),
 ('Starfield', 'Bethesdas epic space RPG set in a vast universe with hundreds of planets to explore.', 39.99, 'Xbox', false, 'starfield.jpg'),
-('Gears 5', 'An intense third-person shooter set in a brutal war against the Swarm.', 19.99, 'Xbox', false, 'gears5.jpg');
+('Gears 5', 'An intense third-person shooter set in a brutal war against the Swarm.', 19.99, 'Xbox', false, 'gears5.jpg'),
+('The Legend of Zelda: Tears of the Kingdom', 'An open-world adventure where Link explores the skies and lands of Hyrule.', 49.99, 'Nintendo', false, 'zelda.jpg'),
+('Super Mario Odyssey', 'Join Mario on a massive globe-trotting adventure to rescue Princess Peach.', 39.99, 'Nintendo', false, 'marioodyssey.jpg'),
+('Pokemon Scarlet', 'Explore an open-world region and catch hundreds of Pokemon in this new adventure.', 49.99, 'Nintendo', false, 'pokemonscarlet.jpg'),
+('Mario Kart 8', 'The definitive kart racing game with all tracks and characters included.', 39.99, 'Nintendo', true, 'mariokart8.jpg');
 
 
 -- codigos de recarga pregenerados, el campo used empieza en false

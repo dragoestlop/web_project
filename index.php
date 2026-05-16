@@ -86,6 +86,7 @@ while ($fila = $prepared->fetch()) {
             <option value="PC">PC</option>
             <option value="PlayStation">PlayStation</option>
             <option value="Xbox">Xbox</option>
+            <option value="Nintendo">Nintendo</option>
         </select>
         <select name="online">
             <option value="">Online & Offline</option>
