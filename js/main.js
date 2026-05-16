@@ -26,7 +26,7 @@ function openModal(id) {
     .then(function(game) {            
             document.getElementById("modal-title").textContent = game.title;
             document.getElementById("modal-description").textContent = game.description;
-            document.getElementById("modal-price").textContent = "$" + game.price;
+            document.getElementById("modal-price").textContent = game.price + "€";
             document.getElementById("modal-platform").textContent = game.platform;
             document.getElementById("modal-cover").src = "img/" + game.cover_image;
             document.getElementById("modal-online").textContent = game.is_online ? "Online" : "Offline";

@@ -111,7 +111,7 @@ while ($fila = $prepared->fetch()) {
                     <h3><?php echo $game['title']; ?></h3>  <!--titulo del juego-->
                     <p class="price">  <!--precio del juego que si es gratis pone free-->
                         <?php if ($game['price'] > 0) { ?>
-                            €<?php echo $game['price']; ?>
+                            <?php echo $game['price']; ?>€
                         <?php } else { ?>
                             Free
                         <?php } ?>
