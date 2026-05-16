@@ -2,12 +2,13 @@
 require_once 'config.php';
 session_start();
 
+//si el usuario rellena los campos y los envia (POST) los almacenamos en email y password
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
     // buscamos el email
-    $sql = "SELECT * FROM users WHERE email = :email";
+    $sql = "SELECT * FROM users WHERE email = :email";  //:email" se sustituye con el mail que ha metido el usuario
     $prepared = $pdo->prepare($sql);
     $prepared->execute(['email' => $email]);
     $user = $prepared->fetch();

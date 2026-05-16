@@ -14,14 +14,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // guardamos user en bdd
     $sql = "INSERT INTO users (username, email, password) VALUES (:username, :email, :password)";
     $prepared = $pdo->prepare($sql);
-    $prepared->execute([
-        'username' => $username,
-        'email' => $email,
-        'password' => $hash
-    ]);
 
-    // redirigimos al login
-    header("Location: login.php");
+    try {
+        $prepared->execute([
+            'username' => $username,
+            'email' => $email,
+            'password' => $hash
+        ]);
+        // si todo va bien redirigimos al login
+        header("Location: login.php");
+    } catch (PDOException $error_mail_user) {
+        // si el username o email ya existen guardamos el mensaje de error
+        $mensaje_error = "Username or email already registered";
+    }
 }
 ?>
 
@@ -35,6 +40,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <a href="index.php">← Back to store</a>
+    <?php if (isset($mensaje_error)) { ?>  <!--si el usuario o correo ya esta registradp mostramos el mensaje de error-->
+    <p><?php echo $mensaje_error; ?></p>
+    <?php } ?>
+    
     <!-- formulario igual que en index.php -->
     <form method="POST" action="register.php">
     <input type="text" name="username" placeholder="Username">
