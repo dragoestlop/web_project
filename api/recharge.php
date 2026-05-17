@@ -9,8 +9,9 @@ $sql = "SELECT amount, used FROM recharge_codes WHERE code = :code";
 $prepared = $pdo->prepare($sql);
 $prepared->execute(['code' => $code]);
 $result = $prepared->fetch();
-//para que no haya cod
-if ($result && $result['used'] == false) {
+
+
+if ($result && !$result['used']) { //comprueba que el codigo exista y no se haya usado
     // sumamos al user el saldo
     $amount = $result['amount'];
     $_SESSION['balance'] += $amount;
@@ -26,11 +27,9 @@ if ($result && $result['used'] == false) {
     $prepared->execute(['code' => $code]);
 
     header("Location: ../profile.php");
-    exit();
 } else {
     // error msg
     header("Location: ../profile.php?error=invalid_code");
-    exit();
 }
 
 ?>
