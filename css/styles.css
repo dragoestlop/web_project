@@ -295,3 +295,88 @@ nav {
     font-size: 14px;
     margin-top: auto;
 }
+
+
+/* estilos para las paginas de login y register */
+
+/* enlace de volver a la tienda en login y register */
+.back-link {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    color: #4f8ef7;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #1a1a2e;
+}
+
+.form-box {
+    background-color: #2d2d44;
+    padding: 40px;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-box h1 {
+    text-align: center;
+    font-size: 28px;
+    color: #4f8ef7;
+    margin-bottom: 20px;
+}
+
+.form-box input {
+    background-color: #1a1a2e;
+    color: #ffffff;
+    border: 1px solid #4f8ef7;
+    padding: 10px 15px;
+    font-size: 14px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.form-box input::placeholder {
+    color: #aaaaaa;
+}
+
+.form-box button {
+    background-color: #4f8ef7;
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.form-box button:hover {
+    background-color: #3a7ae0;
+}
+
+/* mensaje de error en login y register */
+.form-box .error {
+    color: #ff6b6b;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* enlace de register en login y viceversa */
+.form-box .form-link {
+    text-align: center;
+    font-size: 14px;
+    color: #aaaaaa;
+}
+
+/* clase para el logo en las paginas de login y register */
+.form-logo {
+    color: #4f8ef7;
+    text-decoration: none;
+}
