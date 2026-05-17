@@ -22,7 +22,7 @@ $purchases = $prepared->fetchAll();//recoge los campos solicitados de los elemen
 </head>
 
 <body>
-    <div class="profile-nav">
+    <div class="profile-nav"> <!-- botones de atras y logout -->
     <a class="store-link" href="index.php">← Back to store</a>
     <a class="logout-link" href="logout.php">Logout</a>
     </div>
@@ -37,20 +37,22 @@ $purchases = $prepared->fetchAll();//recoge los campos solicitados de los elemen
         <?php } ?>
 
         <!-- formulario de recarga de saldo -->
-        <form class="recharge-form" method="POST" action="api/recharge.php">
+        <form class="recharge-form" method="POST" action="api/recharge.php"> <!--recharge.php recibe el codigo y comprueba si es valido en la BDD-->
             <input type="text" name="code" placeholder="Enter recharge code">
             <button type="submit">Recharge</button>
         </form>
 
         <!-- tabla de compras del usuario -->
         <h2>Your Purchases</h2>
-        <table class="purchases-table">
-            <tr>
-                <th>Game</th>
+        <table class="purchases-table"> <!-- creamos una tabla-->
+            <tr> <!-- creamos una fila -->
+                <th>Game</th> <!-- th es table header que lo pone en negrita-->
                 <th>Activation Code</th>
             </tr>
-            <?php foreach ($purchases as $purchase) { ?>
+            <!-- recorremos el array purchases en el que buy.php añade un elemento por cada compra y a cada elemento lo llamamos purchase-->
+            <?php foreach ($purchases as $purchase) { ?> 
             <tr>
+                <!-- metemos los campos de title y activation code de cada elemento del array en la tabla-->
                 <td><?php echo $purchase['title']; ?></td>
                 <td><?php echo $purchase['activation_code']; ?></td>
             </tr>
