@@ -9,7 +9,7 @@ function closeModal() {
     document.getElementById("modal").classList.add("hidden");
     //conseguimos los elementos del modal para ocultar su contenido
 }
-let currentGameId = null;  // variable global que hace que indica por ahora que no hay nignun juego abierto
+var currentGameId = null;  // variable global que indica por ahora que no hay nignun juego abierto
 
 
 function openModal(id) {
@@ -29,7 +29,11 @@ function openModal(id) {
             document.getElementById("modal-price").textContent = game.price + "€";
             document.getElementById("modal-platform").textContent = game.platform;
             document.getElementById("modal-cover").src = "img/" + game.cover_image;
-            document.getElementById("modal-online").textContent = game.is_online ? "Online" : "Offline";
+            if (game.is_online) {
+                document.getElementById("modal-online").textContent = "Online";
+            } else {
+                document.getElementById("modal-online").textContent = "Offline";
+}
         }); 
 }
 
@@ -44,7 +48,7 @@ function buyGame() {
             if (result.success) {
                 document.getElementById("modal-message").textContent = "Game purchased! Your code: " + result.activation_code;
                 // actualizamos el saldo que se ve en el nav
-                document.querySelector(".balance").textContent = result.new_balance + "€";
+                document.getElementById("balance").textContent = result.new_balance + "€";
                 //closeModal();
                 //prueba para ver el codigo correctamente
             } else {
