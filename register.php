@@ -40,7 +40,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
-    <a class="back-link" href="index.php">← Back to store</a>
+    <div class="profile-nav">
+    <a class="store-link" href="index.php">← Back to store</a> <!-- cuadramos el boton de back-->
+    </div>
     <div class="form-container">
         <div class="form-box">
             <!-- logo que lleva a la tienda -->

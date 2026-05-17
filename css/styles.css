@@ -297,14 +297,11 @@ nav {
 }
 
 
-/* estilos para las paginas de login y register */
+/* estilos para las paginas de login y register y profile */
 
-/* enlace de volver a la tienda en login y register */
-.back-link {
-    position: absolute;
-    top: 15px;
-    left: 20px;
+.store-link {
     color: #4f8ef7;
+    font-size: 20px;
 }
 
 .form-container {
@@ -391,4 +388,96 @@ nav {
     height: 60px;
     display: block;
     margin: 0 auto 20px auto;
+}
+
+
+
+/* estilos para la pagina de perfil */
+
+.profile-container {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #2d2d44;
+}
+
+.profile-container h1 {
+    font-size: 24px;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.profile-container p {
+    color: #aaaaaa;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* formulario de recarga */
+.recharge-form {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.recharge-form input {
+    background-color: #1a1a2e;
+    color: #ffffff;
+    border: 1px solid #4f8ef7;
+    padding: 10px 15px;
+    font-size: 14px;
+    width: 100%;
+}
+
+.recharge-form button {
+    background-color: #4f8ef7;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.recharge-form button:hover {
+    background-color: #3a7ae0;
+}
+
+/* mensaje de error de recarga */
+.error-msg {
+    color: #ff6b6b;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/* tabla de compras */
+.purchases-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.purchases-table th {
+    background-color: #1a1a2e;
+    color: #4f8ef7;
+    padding: 10px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.purchases-table td {
+    padding: 10px;
+    color: #ffffff;
+    font-size: 14px;
+    border-bottom: 1px solid #1a1a2e;
+}
+
+/* barra superior de navegacion */
+.profile-nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+}
+
+/* boton de logout en profile */
+.logout-link {
+    color: #ff6b6b;
+    font-size: 20px;
 }
