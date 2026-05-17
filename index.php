@@ -60,7 +60,7 @@ while ($fila = $prepared->fetch()) {
     <!-- barra de navegacion -->
     <nav>
         <div class="nav-logo">
-            <a href="index.php">EasyGames</a>  <!--esto hace que el propio "logo"te lleve a la pagina principal-->
+            <a href="index.php"><img src="img/logo.png" alt="EasyGames"></a>  <!--inserta el logo y te lleve a la pagina principal-->
         </div>
         <div class="nav-links">
             <?php if (isset($_SESSION['user_id'])){ ?>  <!--este if comprueba si el usuario esta logueado-->

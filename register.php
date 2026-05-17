@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="form-container">
         <div class="form-box">
             <!-- logo que lleva a la tienda -->
-            <h1><a class="form-logo" href="index.php">EasyGames</a></h1>
+            <a href="index.php"><img src="img/logo.png" alt="EasyGames"></a>
             <!-- mensaje de error si el usuario o email ya existen -->
             <?php if (isset($mensaje_error)) { ?>
                 <p class="error"><?php echo $mensaje_error; ?></p>

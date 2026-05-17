@@ -380,3 +380,16 @@ nav {
     color: #4f8ef7;
     text-decoration: none;
 }
+
+/*LOGO DE LA TIENDA EN LA NAVBAR Y EN LAS PAGINAS DE LOGIN Y REGISTER*/
+/* tamaño del logo en la navbar */
+.nav-logo img {
+    height: 40px;
+}
+
+/* tamaño del logo en login y register */
+.form-box img {
+    height: 60px;
+    display: block;
+    margin: 0 auto 20px auto;
+}
