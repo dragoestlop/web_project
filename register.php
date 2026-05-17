@@ -1,6 +1,6 @@
 <?php
 require_once 'config.php';
-session_start();
+session_start();  //aunque no usemos $SESSION aquí la mantenemos activa por si el usuario ya se hubiera logueado (best practice)
 
 // comprobamos si el formulario ha sido enviado
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
 
     // encriptamos la contraseña con funcion hash
-    $hash = password_hash($password, PASSWORD_DEFAULT);
+    $hash = password_hash($password, PASSWORD_DEFAULT);  //guardamos la contraseña hasheada
 
     // guardamos user en bdd
     $sql = "INSERT INTO users (username, email, password) VALUES (:username, :email, :password)";
@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ]);
         // si todo va bien redirigimos al login
         header("Location: login.php");
-    } catch (PDOException $error_mail_user) {
+    } catch (PDOException $error_mail_user) {  //el error salta porque en la BDD las columnas son UNIQUE NOT NULL (no se pueden repetir)
         // si el username o email ya existen guardamos el mensaje de error
         $mensaje_error = "Username or email already registered";
     }
