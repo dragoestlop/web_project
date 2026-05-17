@@ -38,18 +38,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>EasyGames - Register</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
-    <a href="index.php">← Back to store</a>
-    <?php if (isset($mensaje_error)) { ?>  <!--si el usuario o correo ya esta registradp mostramos el mensaje de error-->
-    <p><?php echo $mensaje_error; ?></p>
-    <?php } ?>
-    
-    <!-- formulario igual que en index.php -->
-    <form method="POST" action="register.php">
-    <input type="text" name="username" placeholder="Username">
-    <input type="email" name="email" placeholder="Email">
-    <input type="password" name="password" placeholder="Password">
-    <button type="submit">Register</button>
-</form>
+    <a class="back-link" href="index.php">← Back to store</a>
+    <div class="form-container">
+        <div class="form-box">
+            <!-- logo que lleva a la tienda -->
+            <h1><a class="form-logo" href="index.php">EasyGames</a></h1>
+            <!-- mensaje de error si el usuario o email ya existen -->
+            <?php if (isset($mensaje_error)) { ?>
+                <p class="error"><?php echo $mensaje_error; ?></p>
+            <?php } ?>
+            <form method="POST" action="register.php">
+                <input type="text" name="username" placeholder="Username">
+                <input type="email" name="email" placeholder="Email">
+                <input type="password" name="password" placeholder="Password">
+                <button type="submit">Register</button>
+            </form>
+            <!-- enlace al login -->
+            <p class="form-link">Already have an account? <a href="login.php">Login here</a></p>
+        </div>
+    </div>
 </body>
-</html>
